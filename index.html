@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filerimos Harmony</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfbf8;
+      color: #333;
+    }
+    header {
+      background-color: #e8e4d8;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .highlights ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .highlights li {
+      margin-bottom: 0.5rem;
+    }
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .photos img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #e8e4d8;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .lang-en, .lang-gr {
+      display: none;
+    }
+    .lang-visible {
+      display: block;
+    }
+    .language-switch {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .language-switch button {
+      margin: 0 0.5rem;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+	.language-switch button img {
+		width: 24px;
+		height: auto;
+		vertical-align: middle;
+	}
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+  </style>
+  <script>
+    function switchLanguage(lang) {
+      const allGr = document.querySelectorAll('.lang-gr');
+      const allEn = document.querySelectorAll('.lang-en');
+      if (lang === 'gr') {
+        allGr.forEach(el => el.classList.add('lang-visible'));
+        allEn.forEach(el => el.classList.remove('lang-visible'));
+      } else {
+        allEn.forEach(el => el.classList.add('lang-visible'));
+        allGr.forEach(el => el.classList.remove('lang-visible'));
+      }
+    }
+    window.onload = () => switchLanguage('en');
+
+    function showLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+    }
+    function hideLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <header>
+
+    <h1>Filerimos Harmony</h1>
+    <section class="lang-en">
+		<p>Your peaceful retreat in the heart of Rhodes</p>
+	</section>
+	<section class="lang-gr">
+		<p> Ηρεμία και χαλάρωση στην καρδιά της Ρόδου</p>
+	</section>
+    <div class="language-switch">
+      <button onclick="switchLanguage('gr')"><img src="flag-gr.png" alt="GR"></button>
+      <button onclick="switchLanguage('en')"><img src="flag-en.png" alt="EN"></button>
+    </div>
+  </header>
+
+  <section class="lang-en">
+    <h2>Welcome</h2>
+    <p>Welcome to <strong>Filerimos Harmony</strong>, an authentic haven of peace in Pastida, Rhodes. Surrounded by olive trees, citrus, and flowers — just 10 minutes from the beach and the airport — this cozy home offers a private escape full of nature, comfort, and calm.</p>
+  </section>
+  <section class="lang-gr">
+    <h2>Καλωσόρισμα</h2>
+    <p>Καλωσορίσατε στο <strong>Filerimos Harmony</strong>, ένα αυθεντικό καταφύγιο ηρεμίας στην Παστίδα Ρόδου. Ανάμεσα σε ελιές, ξινόδεντρα και λουλούδια, μόλις 10 λεπτά από την παραλία και το αεροδρόμιο, σας περιμένει ένα σπίτι γεμάτο φύση, άνεση και χαλάρωση.</p>
+  </section>
+
+  <section class="highlights lang-en">
+    <h2>Highlights</h2>
+    <ul>
+      <li>🏠 75m² traditional house with tile roof</li>
+      <li>🌿 Courtyard with flowers, olive and citrus trees</li>
+      <li>🍴 Fully equipped kitchen & Wi-Fi</li>
+      <li>🕊️ Total privacy & tranquility</li>
+      <li>🚗 Free parking</li>
+      <li>🌅 Ideal for 5–6 guests</li>
+    </ul>
+  </section>
+  <section class="highlights lang-gr">
+    <h2>Παροχές</h2>
+    <ul>
+      <li>🏠 Μονοκατοικία 75τ.μ. με κεραμοσκεπή</li>
+      <li>🌿 Αυλή με λουλούδια, ελιές και ξινόδεντρα</li>
+      <li>🍴 Πλήρως εξοπλισμένη κουζίνα & Wi-Fi</li>
+      <li>🕊️ Απόλυτη ιδιωτικότητα & γαλήνη</li>
+      <li>🚗 Δωρεάν parking</li>
+      <li>🌅 Ιδανικό για 5-6 άτομα</li>
+    </ul>
+  </section>
+
+  <section class="photos">
+    <h2>Gallery</h2>
+    <img src="photo1-yard.jpg" alt="Yard with olive trees" onclick="showLightbox(this.src)" />
+	<img src="photo5-view.jpg" alt="View to surrounding nature" onclick="showLightbox(this.src)" />
+    <img src="photo3-interior.jpg" alt="Interior view" onclick="showLightbox(this.src)" />
+    <img src="photo4-details.jpg" alt="Decorative details" onclick="showLightbox(this.src)" />
+	<img src="photo10-dining.jpg" alt="House exterior" onclick="showLightbox(this.src)" />
+    <img src="photo9-livingroom.jpg" alt="Soft light and garden" onclick="showLightbox(this.src)" />   
+    <img src="photo12-bedroom1b.jpg" alt="Soft light and garden" onclick="showLightbox(this.src)" />
+	 <img src="photo16-bathroom1.jpg" alt="Canaries in the yard" onclick="showLightbox(this.src)" />
+	<div style="text-align: center; margin-top: 1rem;">
+  <a href="gallery.html" style="font-size: 1.1rem; text-decoration: none; color: #555; border: 1px solid #ccc; padding: 0.5rem 1rem; border-radius: 5px; background-color: #f0f0f0;">
+    ➕ More photos
+  </a>
+</div>
+  </section>
+
+  <div id="lightbox" class="lightbox" onclick="hideLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded view" />
+  </div>
+
+  <section class="lang-en">
+    <h2>Location</h2>
+    <p>
+      📍 Pastida, Rhodes – at the foothills of Filerimos<br />
+      🏖️ 10 minutes from Ialyssos beach and the airport<br />
+      🏙️ 15 minutes from Rhodes Town and Faliraki
+    </p>
+  </section>
+  <section class="lang-gr">
+    <h2>Τοποθεσία</h2>
+    <p>
+      📍 Παστίδα, Ρόδος – στους πρόποδες του Φιλέρημου<br />
+      🏖️ 10 λεπτά από την παραλία Ιαλυσού και το αεροδρόμιο<br />
+      🏙️ 15 λεπτά από την πόλη της Ρόδου και το Φαληράκι
+    </p>
+  </section>
+  
+  
+
+  <footer>
+    &copy; 2025 Filerimos Harmony – All rights reserved.
+  </footer>
+</body>
+</html>
