@@ -9,7 +9,36 @@
     header, footer { background-color:#e8e4d8; text-align:center; padding:1.5rem; }
     h1 { margin:0; font-size:2rem; }
     .gallery { max-width:1000px; margin:2rem auto; display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; padding:0 1rem; }
-    .gallery img { width:100%; height:auto; border-radius:10px; cursor:pointer; }
+    
+    /* ΝΕΑ ΑΛΛΑΓΗ: Container για σχετική τοποθέτηση */
+    .gallery-item {
+      position: relative; 
+      overflow: hidden; 
+      border-radius: 10px; 
+    }
+    
+    .gallery img { 
+      width: 100%; 
+      height: auto; 
+      border-radius: 10px; 
+      cursor: pointer; 
+      display: block; /* Για να αφαιρέσει κενό κάτω από την εικόνα */
+    }
+
+    /* ΝΕΑ ΑΛΛΑΓΗ: Στυλ και τοποθέτηση για το όνομα του αρχείου */
+    .image-filename {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px 8px;
+      font-size: 0.75rem;
+      border-top-left-radius: 5px;
+      z-index: 10;
+      pointer-events: none; /* Επιτρέπει το κλικ στο lightbox της εικόνας */
+    }
+
     .language-switch button { margin:0 0.5rem; padding:0.5rem 1rem; cursor:pointer; }
     .lang-en, .lang-gr { display:none; }
     .lang-visible { display:block; }
@@ -56,28 +85,94 @@
   </header>
 
   <div class="gallery">
-    <img src="1-DSC_5374.jpg" onclick="showLightbox(this.src)" />
-    <img src="2-DSC_5370.jpg" onclick="showLightbox(this.src)" />
-    <img src="3-DSC_5386.jpg" onclick="showLightbox(this.src)" />
-    <img src="4-DSC_5395.jpg" onclick="showLightbox(this.src)" />
-    <img src="5-DSC_5365.jpg" onclick="showLightbox(this.src)" />
-    <img src="6-DSC_5381.jpg" onclick="showLightbox(this.src)" />
-    <img src="7-DSC_5346.jpg" onclick="showLightbox(this.src)" />
-    <img src="8-DSC_5345.jpg" onclick="showLightbox(this.src)" />
-    <img src="9-DSC_5354.jpg" onclick="showLightbox(this.src)" />
-    <img src="10-DSC_5359.jpg" onclick="showLightbox(this.src)" />
-    <img src="11-DSC_5352.jpg" onclick="showLightbox(this.src)" />
-    <img src="12-DSC_5347.jpg" onclick="showLightbox(this.src)" />
-    <img src="13-DSC_5288.jpg" onclick="showLightbox(this.src)" />
-    <img src="14-DSC_5276.jpg" onclick="showLightbox(this.src)" />
-    <img src="15-DSC_5323.jpg" onclick="showLightbox(this.src)" />
-    <img src="16-DSC_5307.jpg" onclick="showLightbox(this.src)" />
-    <img src="17-DSC_5315.jpg" onclick="showLightbox(this.src)" />
-    <img src="18-DSC_5313.jpg" onclick="showLightbox(this.src)" />
-    <img src="19-DSC_5318.jpg" onclick="showLightbox(this.src)" />
-    <img src="20-DSC_5326.jpg" onclick="showLightbox(this.src)" />
-    <img src="21-DSC_5332.jpg" onclick="showLightbox(this.src)" />
-    <img src="22-DSC_5335.jpg" onclick="showLightbox(this.src)" />
+    <div class="gallery-item">
+        <img src="1-DSC_5374.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">1-DSC_5374.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="2-DSC_5370.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">2-DSC_5370.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="3-DSC_5386.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">3-DSC_5386.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="4-DSC_5395.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">4-DSC_5395.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="5-DSC_5365.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">5-DSC_5365.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="6-DSC_5381.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">6-DSC_5381.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="7-DSC_5346.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">7-DSC_5346.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="8-DSC_5345.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">8-DSC_5345.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="9-DSC_5354.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">9-DSC_5354.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="10-DSC_5359.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">10-DSC_5359.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="11-DSC_5352.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">11-DSC_5352.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="12-DSC_5347.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">12-DSC_5347.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="13-DSC_5288.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">13-DSC_5288.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="14-DSC_5276.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">14-DSC_5276.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="15-DSC_5323.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">15-DSC_5323.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="16-DSC_5307.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">16-DSC_5307.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="17-DSC_5315.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">17-DSC_5315.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="18-DSC_5313.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">18-DSC_5313.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="19-DSC_5318.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">19-DSC_5318.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="20-DSC_5326.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">20-DSC_5326.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="21-DSC_5332.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">21-DSC_5332.jpg</span>
+    </div>
+    <div class="gallery-item">
+        <img src="22-DSC_5335.jpg" onclick="showLightbox(this.src)" />
+        <span class="image-filename">22-DSC_5335.jpg</span>
+    </div>
   </div>
 
   <div class="back-button">
