@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Gallery - Filerimos Harmony</title>
+  <style>
+    body { font-family: 'Georgia', serif; background-color: #fdfbf8; color:#333; margin:0; padding:0; }
+    header, footer { background-color:#e8e4d8; text-align:center; padding:1.5rem; }
+    h1 { margin:0; font-size:2rem; }
+    .gallery { max-width:1000px; margin:2rem auto; display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; padding:0 1rem; }
+    .gallery img { width:100%; height:auto; border-radius:10px; cursor:pointer; }
+    .language-switch button { margin:0 0.5rem; padding:0.5rem 1rem; cursor:pointer; }
+    .lang-en, .lang-gr { display:none; }
+    .lang-visible { display:block; }
+    .lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; z-index:999; }
+    .lightbox img { max-width:90%; max-height:90%; border-radius:10px; }
+    .back-button { text-align:center; margin:2rem; }
+    .back-button a { text-decoration:none; background:#e8e4d8; color:#333; padding:0.5rem 1rem; border-radius:5px; }
+  </style>
+  <script>
+    function switchLanguage(lang) {
+      const allGr = document.querySelectorAll('.lang-gr');
+      const allEn = document.querySelectorAll('.lang-en');
+      if (lang === 'gr') {
+        allGr.forEach(el => el.classList.add('lang-visible'));
+        allEn.forEach(el => el.classList.remove('lang-visible'));
+      } else {
+        allEn.forEach(el => el.classList.add('lang-visible'));
+        allGr.forEach(el => el.classList.remove('lang-visible'));
+      }
+    }
+    window.onload = () => {
+      const lang = localStorage.getItem('lang') || 'en';
+      switchLanguage(lang);
+    }
+    function showLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+    }
+    function hideLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1 class="lang-en">Gallery</h1>
+    <h1 class="lang-gr">Φωτογραφίες</h1>
+    <div class="language-switch">
+      <button onclick="localStorage.setItem('lang','gr'); switchLanguage('gr')">Ελληνικά</button>
+      <button onclick="localStorage.setItem('lang','en'); switchLanguage('en')">English</button>
+    </div>
+  </header>
+
+  <div class="gallery">
+    <img src="1-DSC_5374.jpg" onclick="showLightbox(this.src)" />
+    <img src="2-DSC_5370.jpg" onclick="showLightbox(this.src)" />
+    <img src="3-DSC_5386.jpg" onclick="showLightbox(this.src)" />
+    <img src="4-DSC_5395.jpg" onclick="showLightbox(this.src)" />
+    <img src="5-DSC_5365.jpg" onclick="showLightbox(this.src)" />
+    <img src="6-DSC_5381.jpg" onclick="showLightbox(this.src)" />
+    <img src="7-DSC_5346.jpg" onclick="showLightbox(this.src)" />
+    <img src="8-DSC_5345.jpg" onclick="showLightbox(this.src)" />
+    <img src="9-DSC_5354.jpg" onclick="showLightbox(this.src)" />
+    <img src="10-DSC_5359.jpg" onclick="showLightbox(this.src)" />
+    <img src="11-DSC_5352.jpg" onclick="showLightbox(this.src)" />
+    <img src="12-DSC_5347.jpg" onclick="showLightbox(this.src)" />
+    <img src="13-DSC_5288.jpg" onclick="showLightbox(this.src)" />
+    <img src="14-DSC_5276.jpg" onclick="showLightbox(this.src)" />
+    <img src="15-DSC_5323.jpg" onclick="showLightbox(this.src)" />
+    <img src="16-DSC_5307.jpg" onclick="showLightbox(this.src)" />
+    <img src="17-DSC_5315.jpg" onclick="showLightbox(this.src)" />
+    <img src="18-DSC_5313.jpg" onclick="showLightbox(this.src)" />
+    <img src="19-DSC_5318.jpg" onclick="showLightbox(this.src)" />
+    <img src="20-DSC_5326.jpg" onclick="showLightbox(this.src)" />
+    <img src="21-DSC_5332.jpg" onclick="showLightbox(this.src)" />
+    <img src="22-DSC_5335.jpg" onclick="showLightbox(this.src)" />
+  </div>
+
+  <div class="back-button">
+    <a href="index.html">← Back / Επιστροφή</a>
+  </div>
+
+  <div id="lightbox" class="lightbox" onclick="hideLightbox()">
+    <img id="lightbox-img" src="" />
+  </div>
+
+  <footer>
+    &copy; 2025 Filerimos Harmony – All rights reserved.
+  </footer>
+</body>
+</html>
